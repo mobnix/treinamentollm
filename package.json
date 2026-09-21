@@ -1,0 +1,21 @@
+{
+  "name": "llm-warzone",
+  "version": "1.0.0",
+  "description": "War game educacional de OWASP Top 10 for LLM. Alvo de treino deliberadamente vulnerável, self-hosted, com pontuacao e placar.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.8.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

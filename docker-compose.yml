@@ -1,0 +1,26 @@
+services:
+  warzone:
+    build: .
+    container_name: llm-warzone
+    ports:
+      - "3000:3000"
+    environment:
+      # Troque em uso real. Assina os tokens de sessao dos jogadores.
+      JWT_SECRET: "troque-este-segredo-na-vps"
+      # Motor: 'mock' (default, offline, deterministico) ou 'proxy' (LLM real).
+      LLM_ENGINE: "mock"
+      # Nome do cenario ficticio (reutilizavel).
+      SCENARIO_NAME: "Meridian Retail"
+      ASSISTANT_NAME: "Aria"
+      # Placar publico para projetar em tela sem login.
+      PUBLIC_SCOREBOARD: "true"
+      # Para usar um LLM real, defina LLM_ENGINE=proxy e as tres linhas abaixo:
+      # LLM_ENDPOINT: "https://api.openai.com/v1/chat/completions"
+      # LLM_API_KEY: "sk-..."
+      # LLM_MODEL: "gpt-4o-mini"
+    volumes:
+      - warzone-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  warzone-data:
